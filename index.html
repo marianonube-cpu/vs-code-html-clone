@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code HTML Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <aside id="sidebar">
+            <div class="sidebar-header">EXPLORER</div>
+            <div id="file-tree"></div>
+        </aside>
+        <main id="editor-container">
+            <div id="editor-tabs"></div>
+            <div id="editor"></div>
+            <div id="terminal-container">
+                <div class="terminal-header">TERMINAL</div>
+                <div id="terminal-output"></div>
+                <div class="terminal-input-container">
+                    <span>></span>
+                    <input type="text" id="terminal-input" placeholder="Enter command...">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

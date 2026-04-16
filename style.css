@@ -1,0 +1,123 @@
+:root {
+    --bg-dark: #1e1e1e;
+    --sidebar-bg: #252526;
+    --border-color: #333333;
+    --text-color: #cccccc;
+    --accent-color: #007acc;
+    --terminal-bg: #1e1e1e;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+#container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #858585;
+}
+
+#file-tree {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.file-item, .dir-item {
+    padding: 3px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.file-item:hover, .dir-item:hover {
+    background-color: #2a2d2e;
+}
+
+#editor-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#editor-tabs {
+    height: 35px;
+    background-color: #252526;
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#editor {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#terminal-container {
+    height: 200px;
+    background-color: var(--terminal-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    padding: 5px 15px;
+    font-size: 11px;
+    background-color: #252526;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#terminal-output {
+    flex-grow: 1;
+    padding: 10px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.terminal-input-container {
+    display: flex;
+    padding: 5px 10px;
+    background-color: var(--terminal-bg);
+    align-items: center;
+}
+
+.terminal-input-container span {
+    margin-right: 5px;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-family: 'Consolas', monospace;
+}
