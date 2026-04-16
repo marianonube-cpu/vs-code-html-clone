@@ -1,10 +1,13 @@
 :root {
     --bg-dark: #1e1e1e;
     --sidebar-bg: #252526;
-    --border-color: #333333;
-    --text-color: #cccccc;
-    --accent-color: #007acc;
-    --terminal-bg: #1e1e1e;
+    --header-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-color: #3c4043;
+    --icon-color: #5f6368;
+    --terminal-bg: #222222;
+    --terminal-text: #ffffff;
+    --accent-blue: #1a73e8;
 }
 
 body, html {
@@ -12,112 +15,270 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Google Sans', 'Segoe UI', Tahoma, sans-serif;
     background-color: var(--bg-dark);
-    color: var(--text-color);
     overflow: hidden;
 }
 
-#container {
+#app-container {
     display: flex;
-    width: 100vw;
+    flex-direction: column;
     height: 100vh;
 }
 
+/* HEADER */
+#main-header {
+    height: 48px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: var(--text-color);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .cs-icon {
+    color: #9aa0a6;
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.header-left .title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.header-spacer {
+    flex-grow: 1;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--icon-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn:hover {
+    color: #202124;
+}
+
+.user-profile {
+    margin-left: 8px;
+    color: var(--accent-blue);
+}
+
+/* MIDDLE CONTAINER */
+#middle-container {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+}
+
 #sidebar {
-    width: 250px;
-    background-color: var(--sidebar-bg);
+    width: 300px;
+    background-color: #ffffff;
     border-right: 1px solid var(--border-color);
+    display: flex;
+}
+
+.sidebar-icons {
+    width: 48px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-icons .material-icons {
+    padding: 12px 0;
+    color: var(--icon-color);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-icons .material-icons.active {
+    color: var(--accent-blue);
+    border-left: 2px solid var(--accent-blue);
+}
+
+#explorer-view {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .sidebar-header {
-    padding: 10px;
+    padding: 10px 16px;
     font-size: 11px;
     font-weight: bold;
+    color: #5f6368;
     text-transform: uppercase;
-    color: #858585;
 }
 
 #file-tree {
     flex-grow: 1;
-    overflow-y: auto;
-    padding: 5px;
+    padding: 0 8px;
+    color: #3c4043;
+    font-size: 13px;
 }
 
 .file-item, .dir-item {
-    padding: 3px 10px;
+    padding: 4px 8px;
     cursor: pointer;
-    font-size: 13px;
     display: flex;
     align-items: center;
+    border-radius: 4px;
 }
 
 .file-item:hover, .dir-item:hover {
-    background-color: #2a2d2e;
+    background-color: #f1f3f4;
 }
 
-#editor-container {
+/* EDITOR */
+#editor-wrapper {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
 }
 
 #editor-tabs {
-    height: 35px;
-    background-color: #252526;
-    display: flex;
+    height: 40px;
+    background-color: #f8f9fa;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    padding-left: 8px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    margin-top: 4px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    color: #3c4043;
+    min-width: 120px;
+}
+
+.tab.active {
+    background-color: #ffffff;
+    font-weight: 500;
+}
+
+.tab-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #5f6368;
+}
+
+.close-tab {
+    font-size: 14px;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 #editor {
     flex-grow: 1;
-    overflow: hidden;
 }
 
+/* TERMINAL */
 #terminal-container {
-    height: 200px;
+    height: 250px;
     background-color: var(--terminal-bg);
-    border-top: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
 }
 
 .terminal-header {
-    padding: 5px 15px;
-    font-size: 11px;
-    background-color: #252526;
-    border-bottom: 1px solid var(--border-color);
+    height: 36px;
+    background-color: #323232;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
 }
 
-#terminal-output {
+.terminal-tabs {
+    display: flex;
+    height: 100%;
+}
+
+.terminal-tab {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    color: #e8eaed;
+    font-size: 13px;
+    gap: 8px;
+}
+
+.terminal-tab.active {
+    background-color: var(--terminal-bg);
+    border-radius: 4px 4px 0 0;
+}
+
+.terminal-tab .material-icons {
+    font-size: 16px;
+}
+
+.terminal-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+    color: #9aa0a6;
+}
+
+.terminal-actions .material-icons {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#terminal-content {
     flex-grow: 1;
     padding: 10px;
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: 'Roboto Mono', 'Consolas', monospace;
     font-size: 13px;
+    color: var(--terminal-text);
     overflow-y: auto;
-    white-space: pre-wrap;
 }
 
-.terminal-input-container {
+.terminal-input-line {
     display: flex;
-    padding: 5px 10px;
-    background-color: var(--terminal-bg);
+    gap: 8px;
     align-items: center;
 }
 
-.terminal-input-container span {
-    margin-right: 5px;
-    color: var(--accent-color);
-    font-weight: bold;
+.prompt {
+    color: #81c995;
 }
 
 #terminal-input {
     background: transparent;
     border: none;
     color: white;
-    width: 100%;
+    flex-grow: 1;
     outline: none;
-    font-family: 'Consolas', monospace;
+    font-family: inherit;
+    font-size: inherit;
 }

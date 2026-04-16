@@ -3,28 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VS Code HTML Clone</title>
+    <title>Cloud Shell Editor - Clone</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
 </head>
-<body>
-    <div id="container">
-        <aside id="sidebar">
-            <div class="sidebar-header">EXPLORER</div>
-            <div id="file-tree"></div>
-        </aside>
-        <main id="editor-container">
-            <div id="editor-tabs"></div>
-            <div id="editor"></div>
-            <div id="terminal-container">
-                <div class="terminal-header">TERMINAL</div>
-                <div id="terminal-output"></div>
-                <div class="terminal-input-container">
-                    <span>></span>
-                    <input type="text" id="terminal-input" placeholder="Enter command...">
+<body class="cloud-shell-theme">
+    <div id="app-container">
+        <!-- Header Superior Estilo Cloud Shell -->
+        <header id="main-header">
+            <div class="header-left">
+                <i class="material-icons cs-icon">wysiwyg</i>
+                <h1 class="title">Cloud Shell Editor</h1>
+            </div>
+            <div class="header-spacer"></div>
+            <div class="header-actions">
+                <button class="icon-btn" title="Vista previa en la Web"><i class="material-icons">open_in_browser</i></button>
+                <button class="icon-btn" title="Información de la sesión"><i class="material-icons">info_outline</i></button>
+                <button class="icon-btn" title="Más"><i class="material-icons">more_vert</i></button>
+                <div class="user-profile">
+                    <i class="material-icons">account_circle</i>
                 </div>
             </div>
-        </main>
+        </header>
+
+        <!-- Contenido Principal: Editor y Sidebar -->
+        <div id="middle-container">
+            <aside id="sidebar">
+                <div class="sidebar-icons">
+                    <i class="material-icons active">folder</i>
+                    <i class="material-icons">search</i>
+                    <i class="material-icons">source_control</i>
+                    <i class="material-icons">extension</i>
+                </div>
+                <div id="explorer-view">
+                    <div class="sidebar-header">EXPLORER</div>
+                    <div id="file-tree"></div>
+                </div>
+            </aside>
+
+            <main id="editor-wrapper">
+                <div id="editor-tabs">
+                    <div class="tab active">
+                        <i class="material-icons tab-icon">description</i>
+                        <span id="current-tab-name">welcome.js</span>
+                        <i class="material-icons close-tab">close</i>
+                    </div>
+                </div>
+                <div id="editor"></div>
+            </main>
+        </div>
+
+        <!-- Terminal Inferior Estilo Cloud Shell -->
+        <footer id="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-tabs">
+                    <div class="terminal-tab active">
+                        <i class="material-icons">terminal</i>
+                        <span>cloudshell</span>
+                        <i class="material-icons close-btn">close</i>
+                    </div>
+                </div>
+                <div class="terminal-actions">
+                    <i class="material-icons">add</i>
+                    <i class="material-icons">settings</i>
+                    <i class="material-icons">keyboard_arrow_up</i>
+                </div>
+            </div>
+            <div id="terminal-content">
+                <div id="terminal-output"></div>
+                <div class="terminal-input-line">
+                    <span class="prompt">marianopc20120810@cloudshell:~$</span>
+                    <input type="text" id="terminal-input" spellcheck="false">
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="app.js"></script>
 </body>
